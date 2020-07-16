@@ -1,0 +1,42 @@
+{% extends 'courseapp/base.html' %}
+{% block content %}
+	{% if course_detail %}
+		<div class="row">
+			{% for course in course_detail %}
+				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 boxes1">
+					<a class="boxes" href="#" style="text-decoration: none;">
+						<div class="wrapper">
+							<div class="image">
+								<img src="{{course.image_url}}" alt="course" width="100%">
+							</div>
+							<div class="logo">
+								<img class="logoimage" src="https://prod-discovery.edx-cdn.org/organization/logos/44022f13-20df-4666-9111-cede3e5dc5b6-2cc39992c67a.png" alt="logo">
+							</div>
+							<div class="cardcontent">
+								<h3 class="heading">
+									<span width="230px">
+										<span>{{course.course_title|truncatewords:5}}</span>
+										
+									</span>
+								</h3>
+								<div class="name">
+									<span width="230px">
+										<span>{{course.language}}</span>
+									</span>
+								</div>
+								<div class="">
+									<div class="coursecopy">
+										<span>{{course.category}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+		
+	</div>
+	{% endif %}
+	
+	
+{% endblock %}
