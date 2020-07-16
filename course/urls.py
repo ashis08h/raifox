@@ -20,6 +20,7 @@ from courseapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path("o/", include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('course/', views.CourseList.as_view()),
     path('course/<int:pk>/', views.CourseDetail.as_view()),
 ]

@@ -1,8 +1,8 @@
 {% extends 'courseapp/base.html' %}
 {% block content %}
-	{% if course_detail %}
+	{% if course_details %}
 		<div class="row">
-			{% for course in course_detail %}
+			{% for course in course_details %}
 				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 boxes1">
 					<a class="boxes" href="#" style="text-decoration: none;">
 						<div class="wrapper">
@@ -36,6 +36,28 @@
 			{% endfor %}
 		
 	</div>
+	<div style="text-align: right;">
+								Page {{course_details.number}} from {{course_details.paginator.num_pages}} 
+                                <br/><br/>
+                                {% if course_details.has_previous %}
+                                <a href="?page={{course_details.previous_page_number}}" data-toggle="tooltip" title="Previous" class="btn btn-xs btn-primary"> Prev</a>
+                                {% endif %}
+
+                                {% for i in course_details.paginator.page_range %}
+                                    
+                                    {% if course_details.number == i %}
+                                        <a href="" onclick="return false;" data-toggle="tooltip" title="{{disables}}" class="btn btn-xs btn-primary"> {{i}}</a>
+                                    {% else %}
+                                        <a href="?page={{i}}" data-toggle="tooltip" title="{{i}}" class="btn btn-xs btn-primary"> {{i}}</a>
+                                    {% endif %}
+
+                                {% endfor %}
+
+                                {% if course_details.has_next %}
+                                <a href="?page={{course_details.next_page_number}}" data-toggle="tooltip" title="Next" class="btn btn-xs btn-primary"> Next</a>
+                                {% endif %}
+    </div>
+
 	{% endif %}
 	
 	

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'courseapp',
     'oauth2_provider',
+    'corsheaders',
     'rest_framework',
 ]
 OAUTH2_PROVIDER = {
