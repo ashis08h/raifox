@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from courseapp import views
+from rest_framework import routers
+router = routers.DefaultRouter()
+router.register(r'course', views.CourseViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path("o/", include('oauth2_provider.urls', namespace='oauth2_provider')),
-    path('course/', views.CourseList.as_view()),
-    path('course/<int:pk>/', views.CourseDetail.as_view()),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('allcourse/', include('courseapp.urls')),
 ]
