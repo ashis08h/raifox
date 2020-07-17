@@ -40,10 +40,22 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'courseapp',
     'rest_framework',
+    'oauth2_provider',
+    'corsheaders',
 ]
-
+OAUTH2_PROVIDER = {
+    # this is the list of available scopes
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+}
+#This is for permissions and authentication class for rest framework
 REST_FRAMEWORK={
-    
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    # this is for paginator in restframe work
     'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE':4
 }

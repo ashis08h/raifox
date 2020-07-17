@@ -6,6 +6,7 @@ from rest_framework import status
 from rest_framework import viewsets
 from rest_framework import permissions
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope, TokenHasScope
 
 # index function for all courses
 def index(request):
@@ -27,4 +28,4 @@ class CourseViewSet(viewsets.ModelViewSet):
     """
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    permission_classes=[permissions.IsAuthenticated, permissions.IsAdminUser]
+    permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
