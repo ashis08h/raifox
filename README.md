@@ -48,6 +48,9 @@ for geting api we use - curl -H "Authorization: Bearer <your_access_token>" http
 for posting some new data we use - curl -H "Authorization: Bearer <your_access_token>" -X POST -d"course_title=abc&category=abc......." http://localhost:8000/course/
 In courses page i add django paginator module to make pagination and i keep 8 objects in one page. and for mobile response i used bootstrap 4 classes. 
 
+##Reference 
+https://django-oauth-toolkit.readthedocs.io/en/latest/rest-framework/getting_started.html
+https://www.django-rest-framework.org/topics/documenting-your-api/
 ## License & copyright
 
 Raifox.
