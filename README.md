@@ -24,6 +24,15 @@ A readme for CRUD Api of all Courses available on our website.
 
  GitHub - https://github.com/ashis08h/raifox
  
+## All links
+
+for all course page - http://127.0.0.1:8000/allcourse/
+for api - http://127.0.0.1:8000/course/ (you have to autherize you by access token)
+for register appication and get client id -http://127.0.0.1:8000/o/applications/
+Superusername - ashish
+Password - Ashish123@
+
+ 
 ## Description of Project
 
 I made the crud api wwith django restframework in which i used Model Serializer to do serialization and in views i used ModelViewSet to operate CRUD API.
@@ -37,6 +46,7 @@ and entered my super username,password,client id, client secret.
 After getting access token and become an authorized person we can access our api
 for geting api we use - curl -H "Authorization: Bearer <your_access_token>" http://localhost:8000/course/
 for posting some new data we use - curl -H "Authorization: Bearer <your_access_token>" -X POST -d"course_title=abc&category=abc......." http://localhost:8000/course/
+In courses page i add django paginator module to make pagination and i keep 8 objects in one page. and for mobile response i used bootstrap 4 classes. 
 
 ## License & copyright
 
